@@ -60,7 +60,7 @@ const P=[
 {id:6,name:"কালোজিরা চাল",price:7500,old:9000,wt:"25 কেজি",tag:"লিমিটেড স্টক",star:"⭐⭐⭐⭐⭐ (410)",desc:"অত্যন্ত সুগন্ধি, রাজকীয় স্বাদ",img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=800&q=80"},
 ];
 let cart=[];
-function render(){document.getElementById('grid').innerHTML=P.map(p=>`
+function render(){document.getElementById('shop').innerHTML=P.map(p=>`
 <article class="card"><div class="card-img"><img src="${p.img}"><span class="badge">${p.tag}</span></div>
 <div class="body"><h3>${p.name}</h3><div class="stars">${p.star}</div><small>${p.desc}</small><div style="margin:8px 0"><span class="price">৳${p.price}</span> <span class="old">৳${p.old}</span> <b> • ${p.wt}</b></div>
 <div class="btns"><button class="add" onclick="add(${p.id})">+ কার্ট</button><button class="buy" onclick="buy(${p.id})">💬 WhatsApp-এ কিনুন</button></div></div></article>`).join('');}
