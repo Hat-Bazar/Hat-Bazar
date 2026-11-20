@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>হাট-বাজার | খাঁটি চালের দোকান</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
+body{background:#FFFBF0;color:#1A2E1A}
+.top{background:#0B3D2E;color:#fff;padding:10px;text-align:center;font-size:13px}
+.top b{color:#F9C74F}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.logo{font-size:26px;font-weight:700;color:#0B3D2E}.logo span{color:#E8A800}
+.call{background:#25D366;color:#fff;padding:8px 14px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px}
+.hero{margin:14px;border-radius:24px;overflow:hidden;background:#0B3D2E;color:#fff;position:relative;min-height:340px;display:flex;align-items:end}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero-txt{position:relative;padding:22px;z-index:2}
+.hero-txt h1{font-size:34px;line-height:1.2}.hero-txt h1 i{color:#F9C74F;font-style:normal}
+.hero-txt p{margin:10px 0 16px}
+.btn-wp{background:#25D366;color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block}
+.btn-shop{background:#fff;color:#0B3D2E;padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block;margin-left:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 14px 110px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.hero-txt h1{font-size:28px}}
+.card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.07);border:1px solid #F1EAD6}
+.card-img{height:200px;overflow:hidden;position:relative}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:12px;left:12px;background:#FF3B30;color:#fff;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px}
+.body{padding:16px}.body h3{font-size:19px}.stars{color:#E8A800;margin:6px 0}
+.price{font-size:26px;font-weight:800;color:#0B3D2E}.old{color:#999;text-decoration:line-through}
+.btns{display:flex;gap:8px;margin-top:12px}.add{flex:1;background:#FFF2C5;border:1px solid #F9C74F;padding:12px;border-radius:14px;font-weight:700}
+.buy{flex:1.3;background:#25D366;color:#fff;padding:12px;border-radius:14px;font-weight:700;border:0}
+.float{position:fixed;bottom:14px;left:14px;right:14px;background:#0B3D2E;color:#fff;padding:12px 14px;border-radius:20px;display:flex;justify-content:space-between;align-items:center;z-index:30}
+.float button{background:#25D366;color:#fff;border:0;padding:11px 16px;border-radius:30px;font-weight:700}
+footer{background:#0B3D2E;color:#fff;padding:22px;text-align:center;line-height:1.7}
+footer a{color:#F9C74F}
+</style>
+</head>
+<body>
+<div class="top">🚚 <b>সারা বাংলাদেশে</b> হোম ডেলিভারি • ক্যাশ অন ডেলিভারি • 📞 01777-100006</div>
+<header><div class="logo">🌾 হাট<span>-বাজার</span></div><a class="call" href="https://wa.me/message/4MTE4LZKNRJND1">💬 WhatsApp</a></header>
+<div class="hero">
+<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1200&q=80">
+<div class="hero-txt">
+<div style="background:#F9C74F;color:#000;display:inline-block;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700">✨ আজকের সেরা অফার</div>
+<h1>আমনের ফাইবার যুক্ত<br><i>লাল চাল</i> - প্রিমিয়াম</h1>
+<p>ফাইবার সমৃদ্ধ • পুষ্টিকর • প্রাকৃতিক • ডায়াবেটিস ফ্রেন্ডলি</p>
+<a class="btn-wp" href="https://wa.me/8801777100006?text=আসসালামু আলাইকুম! আমনের লাল চাল 25 কেজি অর্ডার করতে চাই">🛒 ২৫০০ টাকায় অর্ডার করুন</a><a class="btn-shop" href="#shop">সব চাল দেখুন ↓</a>
+</div>
+</div>
+<div id="shop" class="grid"></div>
+<div class="float"><div><b id="cartT">🛒 কার্ট খালি</b><div id="cartTotal">মোট: ০ টাকা</div></div><button onclick="checkout()">অর্ডার করুন →</button></div>
+<footer><b style="font-size:20px">🌾 হাট-বাজার</b><br>WhatsApp: <a href="https://wa.me/message/4MTE4LZKNRJND1">wa.me/message/4MTE4LZKNRJND1</a><br>ফোন: +8801777100006 • সকাল ৯টা - রাত ১০টা<br>hat-bazar.github.io/hat-bazar</footer>
+<script>
+const P=[
+{id:1,name:"আমনের ফাইবার যুক্ত লাল চাল",price:2500,old:2900,wt:"25 কেজি",tag:"BEST SELLER",star:"⭐⭐⭐⭐⭐ (1.2k)",desc:"ফাইবার সমৃদ্ধ, ডায়াবেটিস ও ওজন নিয়ন্ত্রণে সেরা",img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"},
+{id:2,name:"মিনিকেট 28/29 - সিদ্ধ",price:2500,old:2750,wt:"50 কেজি",tag:"সবচেয়ে বেশি বিক্রি",star:"⭐⭐⭐⭐⭐ (980)",desc:"ঝরঝরে ভাত, প্রতিদিনের সংসারের জন্য পারফেক্ট",img:"https://images.unsplash.com/photo-1596560548464-f010165f9b8a?w=800&q=80"},
+{id:3,name:"মিনিকেট 28/29 - আতব",price:2600,old:2850,wt:"50 কেজি",tag:"প্রিমিয়াম",star:"⭐⭐⭐⭐⭐ (720)",desc:"একদম সাদা, নরম, সুগন্ধি ভাত",img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=800&q=80"},
+{id:4,name:"জিরাশাইল চাল",price:3000,old:3400,wt:"50 কেজি",tag:"সুপার প্রিমিয়াম",star:"⭐⭐⭐⭐⭐ (650)",desc:"চিকন, সুগন্ধি - মেহমানদারির জন্য বেস্ট",img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"},
+{id:5,name:"চিনি গুঁড়া চাল",price:2500,old:3000,wt:"25 কেজি",tag:"পোলাও স্পেশাল",star:"⭐⭐⭐⭐⭐ (890)",desc:"পোলাও, খিচুড়ি, পায়েসের জন্য সেরা",img:"https://images.unsplash.com/photo-1596560548464-f010165f9b8a?w=800&q=80"},
+{id:6,name:"কালোজিরা চাল",price:7500,old:9000,wt:"25 কেজি",tag:"লিমিটেড স্টক",star:"⭐⭐⭐⭐⭐ (410)",desc:"অত্যন্ত সুগন্ধি, রাজকীয় স্বাদ",img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=800&q=80"},
+];
+let cart=[];
+function render(){document.getElementById('grid').innerHTML=P.map(p=>`
+<article class="card"><div class="card-img"><img src="${p.img}"><span class="badge">${p.tag}</span></div>
+<div class="body"><h3>${p.name}</h3><div class="stars">${p.star}</div><small>${p.desc}</small><div style="margin:8px 0"><span class="price">৳${p.price}</span> <span class="old">৳${p.old}</span> <b> • ${p.wt}</b></div>
+<div class="btns"><button class="add" onclick="add(${p.id})">+ কার্ট</button><button class="buy" onclick="buy(${p.id})">💬 WhatsApp-এ কিনুন</button></div></div></article>`).join('');}
+function add(id){cart.push(P.find(p=>p.id===id));upd();alert('কার্টে যোগ হয়েছে ✅');}
+function upd(){let t=cart.reduce((s,p)=>s+p.price,0);document.getElementById('cartT').innerText=`🛒 কার্ট: ${cart.length} টি`;document.getElementById('cartTotal').innerText=`মোট: ${t} টাকা`;}
+function buy(id){let p=P.find(x=>x.id===id);window.open('https://wa.me/8801777100006?text='+encodeURIComponent(`আসসালামু আলাইকুম! অর্ডার করতে চাই:\n✅ ${p.name}\n⚖️ ${p.wt}\n💰 ${p.price} টাকা\n\nনাম:\nঠিকানা:\nফোন:`),'_blank');}
+function checkout(){if(!cart.length){alert('আগে একটি চাল কার্টে নিন');return;}let m=`আসসালামু আলাইকুম! অর্ডার:\n`+cart.map(p=>`✅ ${p.name} - ${p.wt} - ${p.price} টাকা`).join('\n')+`\nমোট: ${cart.reduce((s,p)=>s+p.price,0)} টাকা\n\nনাম:\nঠিকানা:\nফোন:`;window.open('https://wa.me/8801777100006?text='+encodeURIComponent(m),'_blank');}
+render();
+</script>
+</body>
+</html>
