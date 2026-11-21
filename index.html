@@ -2,72 +2,116 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>হাট-বাজার | খাঁটি চালের দোকান</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>হাট-বাজার | ঘরের চাল, ঘরে বসে</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
-body{background:#FFFBF0;color:#1A2E1A}
-.top{background:#0B3D2E;color:#fff;padding:10px;text-align:center;font-size:13px}
-.top b{color:#F9C74F}
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px rgba(0,0,0,.06)}
-.logo{font-size:26px;font-weight:700;color:#0B3D2E}.logo span{color:#E8A800}
-.call{background:#25D366;color:#fff;padding:8px 14px;border-radius:30px;text-decoration:none;font-weight:600;font-size:14px}
-.hero{margin:14px;border-radius:24px;overflow:hidden;background:#0B3D2E;color:#fff;position:relative;min-height:340px;display:flex;align-items:end}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.hero-txt{position:relative;padding:22px;z-index:2}
-.hero-txt h1{font-size:34px;line-height:1.2}.hero-txt h1 i{color:#F9C74F;font-style:normal}
-.hero-txt p{margin:10px 0 16px}
-.btn-wp{background:#25D366;color:#fff;padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block}
-.btn-shop{background:#fff;color:#0B3D2E;padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block;margin-left:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 14px 110px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}.hero-txt h1{font-size:28px}}
-.card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.07);border:1px solid #F1EAD6}
-.card-img{height:200px;overflow:hidden;position:relative}.card-img img{width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;top:12px;left:12px;background:#FF3B30;color:#fff;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px}
-.body{padding:16px}.body h3{font-size:19px}.stars{color:#E8A800;margin:6px 0}
-.price{font-size:26px;font-weight:800;color:#0B3D2E}.old{color:#999;text-decoration:line-through}
-.btns{display:flex;gap:8px;margin-top:12px}.add{flex:1;background:#FFF2C5;border:1px solid #F9C74F;padding:12px;border-radius:14px;font-weight:700}
-.buy{flex:1.3;background:#25D366;color:#fff;padding:12px;border-radius:14px;font-weight:700;border:0}
-.float{position:fixed;bottom:14px;left:14px;right:14px;background:#0B3D2E;color:#fff;padding:12px 14px;border-radius:20px;display:flex;justify-content:space-between;align-items:center;z-index:30}
-.float button{background:#25D366;color:#fff;border:0;padding:11px 16px;border-radius:30px;font-weight:700}
-footer{background:#0B3D2E;color:#fff;padding:22px;text-align:center;line-height:1.7}
-footer a{color:#F9C74F}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Hind Siliguri,Arial,sans-serif}
+body{background:#FFF8E7;color:#222}
+header{background:#2E7D32;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+header b{font-size:20px}
+header a{background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold}
+.hero{background:linear-gradient(135deg,#FFEB3B,#FFC107);padding:28px 16px;text-align:center}
+.hero h1{font-size:28px;line-height:1.3}
+.hero p{margin:10px 0;color:#555}
+.btn{display:inline-block;background:#2E7D32;color:#fff;padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:bold;margin-top:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);padding-bottom:10px}
+.card img{width:100%;height:130px;object-fit:cover}
+.card h3{font-size:16px;padding:8px 8px 0}
+.card p{font-size:13px;color:#666;padding:4px 8px}
+.price{font-size:18px;font-weight:bold;color:#2E7D32;padding:2px 8px}
+.card button{width:calc(100% - 16px);margin:6px 8px 0;background:#FF8F00;color:#fff;border:0;padding:10px;border-radius:20px;font-weight:bold}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #2E7D32;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.order{background:#25D366;color:#fff;border:0;padding:12px 20px;border-radius:25px;font-weight:bold;font-size:16px}
+/* Form Popup */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:flex-end;justify-content:center}
+.overlay.show{display:flex}
+.formbox{background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:20px;padding-bottom:30px}
+.formbox h2{font-size:20px;margin-bottom:4px}
+.formbox p{font-size:13px;color:#666;margin-bottom:12px}
+.formbox label{font-size:14px;font-weight:bold;display:block;margin-top:10px}
+.formbox input,.formbox textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:5px;font-size:15px}
+.send{width:100%;background:#25D366;color:#fff;border:0;padding:14px;border-radius:25px;font-weight:bold;font-size:17px;margin-top:16px}
+.close{width:100%;background:#eee;border:0;padding:10px;border-radius:20px;margin-top:8px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr;max-width:1000px;margin:auto}.hero h1{font-size:38px}.formbox{border-radius:20px;margin-bottom:20px}}
 </style>
 </head>
 <body>
-<div class="top">🚚 <b>সারা বাংলাদেশে</b> হোম ডেলিভারি • ক্যাশ অন ডেলিভারি • 📞 01777-100006</div>
-<header><div class="logo">🌾 হাট<span>-বাজার</span></div><a class="call" href="https://wa.me/message/4MTE4LZKNRJND1">💬 WhatsApp</a></header>
+<header><b>🌾 হাট-বাজার</b><a href="https://wa.me/8801712345678">💬 WhatsApp</a></header>
 <div class="hero">
-<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1200&q=80">
-<div class="hero-txt">
-<div style="background:#F9C74F;color:#000;display:inline-block;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700">✨ আজকের সেরা অফার</div>
-<h1>আমনের ফাইবার যুক্ত<br><i>লাল চাল</i> - প্রিমিয়াম</h1>
+<h1>আজকের সেরা অফার<br>আমনের ফাইবার যুক্ত লাল চাল - প্রিমিয়াম</h1>
 <p>ফাইবার সমৃদ্ধ • পুষ্টিকর • প্রাকৃতিক • ডায়াবেটিস ফ্রেন্ডলি</p>
-<a class="btn-wp" href="https://wa.me/8801777100006?text=আসসালামু আলাইকুম! আমনের লাল চাল 25 কেজি অর্ডার করতে চাই">🛒 ২৫০০ টাকায় অর্ডার করুন</a><a class="btn-shop" href="#shop">সব চাল দেখুন ↓</a>
-</div>
+<p><b>🛒 ২৫০০ টাকায় অর্ডার করুন</b></p>
+<a class="btn" href="#shop">সব চাল দেখুন ↓</a>
 </div>
 <div id="shop" class="grid"></div>
-<div class="float"><div><b id="cartT">🛒 কার্ট খালি</b><div id="cartTotal">মোট: ০ টাকা</div></div><button onclick="checkout()">অর্ডার করুন →</button></div>
-<footer><b style="font-size:20px">🌾 হাট-বাজার</b><br>WhatsApp: <a href="https://wa.me/message/4MTE4LZKNRJND1">wa.me/message/4MTE4LZKNRJND1</a><br>ফোন: +8801777100006 • সকাল ৯টা - রাত ১০টা<br>hat-bazar.github.io/hat-bazar</footer>
+<div style="height:80px"></div>
+<div class="cart"><div>🛒 কার্ট <span id="count">খালি</span><br><b>মোট: <span id="total">০</span> টাকা</b></div><button class="order" onclick="openForm()">অর্ডার</button></div>
+
+<!-- ORDER FORM -->
+<div id="formPopup" class="overlay" onclick="if(event.target==this)closeForm()">
+<div class="formbox">
+<h2>🧾 অর্ডার ফর্ম</h2>
+<p>নিচের তথ্য দিন, আপনার অর্ডার সরাসরি WhatsApp-এ চলে যাবে।</p>
+<label>👤 আপনার নাম *</label>
+<input id="cName" placeholder="যেমন: রহিম উদ্দিন">
+<label>📱 মোবাইল নাম্বার *</label>
+<input id="cPhone" placeholder="যেমন: 01712-345678" type="tel">
+<label>🏠 সম্পূর্ণ ঠিকানা *</label>
+<textarea id="cAddr" rows="2" placeholder="গ্রাম, বাজার, থানা, জেলা"></textarea>
+<label>📝 মন্তব্য (ঐচ্ছিক)</label>
+<input id="cNote" placeholder="যেমন: বিকালে ডেলিভারি দিবেন">
+<button class="send" onclick="sendOrder()">✅ WhatsApp-এ অর্ডার পাঠান</button>
+<button class="close" onclick="closeForm()">বন্ধ করুন</button>
+</div>
+</div>
+
 <script>
-const P=[
-{id:1,name:"আমনের ফাইবার যুক্ত লাল চাল",price:2500,old:2900,wt:"25 কেজি",tag:"BEST SELLER",star:"⭐⭐⭐⭐⭐ (1.2k)",desc:"ফাইবার সমৃদ্ধ, ডায়াবেটিস ও ওজন নিয়ন্ত্রণে সেরা",img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"},
-{id:2,name:"মিনিকেট 28/29 - সিদ্ধ",price:2500,old:2750,wt:"50 কেজি",tag:"সবচেয়ে বেশি বিক্রি",star:"⭐⭐⭐⭐⭐ (980)",desc:"ঝরঝরে ভাত, প্রতিদিনের সংসারের জন্য পারফেক্ট",img:"https://images.unsplash.com/photo-1596560548464-f010165f9b8a?w=800&q=80"},
-{id:3,name:"মিনিকেট 28/29 - আতব",price:2600,old:2850,wt:"50 কেজি",tag:"প্রিমিয়াম",star:"⭐⭐⭐⭐⭐ (720)",desc:"একদম সাদা, নরম, সুগন্ধি ভাত",img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=800&q=80"},
-{id:4,name:"জিরাশাইল চাল",price:3000,old:3400,wt:"50 কেজি",tag:"সুপার প্রিমিয়াম",star:"⭐⭐⭐⭐⭐ (650)",desc:"চিকন, সুগন্ধি - মেহমানদারির জন্য বেস্ট",img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"},
-{id:5,name:"চিনি গুঁড়া চাল",price:2500,old:3000,wt:"25 কেজি",tag:"পোলাও স্পেশাল",star:"⭐⭐⭐⭐⭐ (890)",desc:"পোলাও, খিচুড়ি, পায়েসের জন্য সেরা",img:"https://images.unsplash.com/photo-1596560548464-f010165f9b8a?w=800&q=80"},
-{id:6,name:"কালোজিরা চাল",price:7500,old:9000,wt:"25 কেজি",tag:"লিমিটেড স্টক",star:"⭐⭐⭐⭐⭐ (410)",desc:"অত্যন্ত সুগন্ধি, রাজকীয় স্বাদ",img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=800&q=80"},
+const products=[
+{name:"মিনিকেট চাল - প্রিমিয়াম",desc:"ঝরঝরে • প্রতিদিনের ভাতের জন্য সেরা",price:78,img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600"},
+{name:"জিরাশাইল চাল",desc:"সুগন্ধি • পোলাও ও বিরিয়ানির জন্য",price:92,img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=600"},
+{name:"চিনিগুঁড়া চাল",desc:"ছোট দানা • খিচুড়ি ও পায়েসের জন্য",price:135,img:"https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?w=600"},
+{name:"কালোজিরা চাল",desc:"সুগন্ধি • প্রিমিয়াম পোলাও চাল",price:145,img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600"},
+{name:"বাসমতি চাল",desc:"লম্বা দানা • স্পেশাল বিরিয়ানি",price:185,img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=600"},
+{name:"লাল চাল - আমন (ফাইবার)",desc:"ফাইবার সমৃদ্ধ • ডায়াবেটিস ফ্রেন্ডলি",price:95,img:"https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=600"}
 ];
 let cart=[];
-function render(){document.getElementById('shop').innerHTML=P.map(p=>`
-<article class="card"><div class="card-img"><img src="${p.img}"><span class="badge">${p.tag}</span></div>
-<div class="body"><h3>${p.name}</h3><div class="stars">${p.star}</div><small>${p.desc}</small><div style="margin:8px 0"><span class="price">৳${p.price}</span> <span class="old">৳${p.old}</span> <b> • ${p.wt}</b></div>
-<div class="btns"><button class="add" onclick="add(${p.id})">+ কার্ট</button><button class="buy" onclick="buy(${p.id})">💬 WhatsApp-এ কিনুন</button></div></div></article>`).join('');}
-function add(id){cart.push(P.find(p=>p.id===id));upd();alert('কার্টে যোগ হয়েছে ✅');}
-function upd(){let t=cart.reduce((s,p)=>s+p.price,0);document.getElementById('cartT').innerText=`🛒 কার্ট: ${cart.length} টি`;document.getElementById('cartTotal').innerText=`মোট: ${t} টাকা`;}
-function buy(id){let p=P.find(x=>x.id===id);window.open('https://wa.me/8801777100006?text='+encodeURIComponent(`আসসালামু আলাইকুম! অর্ডার করতে চাই:\n✅ ${p.name}\n⚖️ ${p.wt}\n💰 ${p.price} টাকা\n\nনাম:\nঠিকানা:\nফোন:`),'_blank');}
-function checkout(){if(!cart.length){alert('আগে একটি চাল কার্টে নিন');return;}let m=`আসসালামু আলাইকুম! অর্ডার:\n`+cart.map(p=>`✅ ${p.name} - ${p.wt} - ${p.price} টাকা`).join('\n')+`\nমোট: ${cart.reduce((s,p)=>s+p.price,0)} টাকা\n\nনাম:\nঠিকানা:\nফোন:`;window.open('https://wa.me/8801777100006?text='+encodeURIComponent(m),'_blank');}
+function render(){
+document.getElementById('shop').innerHTML=products.map((p,i)=>`
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<div class="price">${p.price} টাকা / কেজি</div>
+<button onclick="add(${i})">+ কার্টে যোগ করুন</button>
+</div>`).join('');
+}
+function add(i){cart.push(products[i]);update();}
+function update(){
+let t=cart.reduce((s,p)=>s+p.price,0);
+document.getElementById('count').innerText=cart.length?cart.length+" টি আইটেম":"খালি";
+document.getElementById('total').innerText=t;
+}
+function openForm(){
+if(!cart.length){alert("আগে চাল কার্টে যোগ করুন");return;}
+document.getElementById('formPopup').classList.add('show');
+}
+function closeForm(){document.getElementById('formPopup').classList.remove('show');}
+function sendOrder(){
+let n=document.getElementById('cName').value.trim();
+let ph=document.getElementById('cPhone').value.trim();
+let ad=document.getElementById('cAddr').value.trim();
+let note=document.getElementById('cNote').value.trim();
+if(!n||!ph||!ad){alert("দয়া করে নাম, মোবাইল আর ঠিকানা দিন");return;}
+let msg="🌾 *নতুন অর্ডার - হাট-বাজার*%0A%0A";
+msg+="👤 *নাম:* "+n+"%0A📱 *মোবাইল:* "+ph+"%0A🏠 *ঠিকানা:* "+ad+"%0A";
+if(note) msg+="📝 *মন্তব্য:* "+note+"%0A";
+msg+="%0A🛒 *অর্ডার:*%0A";
+cart.forEach(p=>{msg+=`• ${p.name} - ${p.price} টাকা%0A`;});
+let t=cart.reduce((s,p)=>s+p.price,0);
+msg+=`%0A💰 *মোট: ${t} টাকা*`;
+window.open("https://wa.me/8801712345678?text="+msg,"_blank");
+}
 render();
 </script>
 </body>
