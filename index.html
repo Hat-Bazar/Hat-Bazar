@@ -9,7 +9,9 @@
 body{background:#FFF8E7;color:#222}
 header{background:#2E7D32;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
 header b{font-size:20px}
-header a{background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold}
+.topbtns{display:flex;gap:6px}
+.topbtns a{color:#fff;padding:8px 10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
+.wa{background:#25D366}.fb{background:#1877F2}
 .hero{background:linear-gradient(135deg,#FFEB3B,#FFC107);padding:28px 16px;text-align:center}
 .hero h1{font-size:28px;line-height:1.3}
 .hero p{margin:10px 0;color:#555}
@@ -23,7 +25,6 @@ header a{background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-
 .card button{width:calc(100% - 16px);margin:6px 8px 0;background:#FF8F00;color:#fff;border:0;padding:10px;border-radius:20px;font-weight:bold}
 .cart{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #2E7D32;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
 .order{background:#25D366;color:#fff;border:0;padding:12px 20px;border-radius:25px;font-weight:bold;font-size:16px}
-/* Form Popup */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:flex-end;justify-content:center}
 .overlay.show{display:flex}
 .formbox{background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:20px;padding-bottom:30px}
@@ -32,12 +33,13 @@ header a{background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-
 .formbox label{font-size:14px;font-weight:bold;display:block;margin-top:10px}
 .formbox input,.formbox textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:5px;font-size:15px}
 .send{width:100%;background:#25D366;color:#fff;border:0;padding:14px;border-radius:25px;font-weight:bold;font-size:17px;margin-top:16px}
+.sendFb{width:100%;background:#1877F2;color:#fff;border:0;padding:14px;border-radius:25px;font-weight:bold;font-size:17px;margin-top:8px}
 .close{width:100%;background:#eee;border:0;padding:10px;border-radius:20px;margin-top:8px}
 @media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr;max-width:1000px;margin:auto}.hero h1{font-size:38px}.formbox{border-radius:20px;margin-bottom:20px}}
 </style>
 </head>
 <body>
-<header><b>🌾 হাট-বাজার</b><a href="https://wa.me/8801712345678">💬 WhatsApp</a></header>
+<header><b>🌾 হাট-বাজার</b><div class="topbtns"><a class="wa" href="https://wa.me/8801777100006">💬 WhatsApp</a><a class="fb" href="https://www.facebook.com/share/1cQCh3k93Z/">📘 Facebook</a></div></header>
 <div class="hero">
 <h1>আজকের সেরা অফার<br>আমনের ফাইবার যুক্ত লাল চাল - প্রিমিয়াম</h1>
 <p>ফাইবার সমৃদ্ধ • পুষ্টিকর • প্রাকৃতিক • ডায়াবেটিস ফ্রেন্ডলি</p>
@@ -48,7 +50,6 @@ header a{background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-
 <div style="height:80px"></div>
 <div class="cart"><div>🛒 কার্ট <span id="count">খালি</span><br><b>মোট: <span id="total">০</span> টাকা</b></div><button class="order" onclick="openForm()">অর্ডার</button></div>
 
-<!-- ORDER FORM -->
 <div id="formPopup" class="overlay" onclick="if(event.target==this)closeForm()">
 <div class="formbox">
 <h2>🧾 অর্ডার ফর্ম</h2>
@@ -56,17 +57,20 @@ header a{background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-
 <label>👤 আপনার নাম *</label>
 <input id="cName" placeholder="যেমন: রহিম উদ্দিন">
 <label>📱 মোবাইল নাম্বার *</label>
-<input id="cPhone" placeholder="যেমন: 01712-345678" type="tel">
+<input id="cPhone" placeholder="যেমন: 01777-100006" type="tel">
 <label>🏠 সম্পূর্ণ ঠিকানা *</label>
 <textarea id="cAddr" rows="2" placeholder="গ্রাম, বাজার, থানা, জেলা"></textarea>
 <label>📝 মন্তব্য (ঐচ্ছিক)</label>
 <input id="cNote" placeholder="যেমন: বিকালে ডেলিভারি দিবেন">
-<button class="send" onclick="sendOrder()">✅ WhatsApp-এ অর্ডার পাঠান</button>
+<button class="send" onclick="sendOrder('wa')">✅ WhatsApp-এ অর্ডার পাঠান - 01777100006</button>
+<button class="sendFb" onclick="sendOrder('fb')">📘 Facebook পেইজে যান</button>
 <button class="close" onclick="closeForm()">বন্ধ করুন</button>
 </div>
 </div>
 
 <script>
+const WA="8801777100006";
+const FB="https://www.facebook.com/share/1cQCh3k93Z/";
 const products=[
 {name:"মিনিকেট চাল - প্রিমিয়াম",desc:"ঝরঝরে • প্রতিদিনের ভাতের জন্য সেরা",price:78,img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600"},
 {name:"জিরাশাইল চাল",desc:"সুগন্ধি • পোলাও ও বিরিয়ানির জন্য",price:92,img:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=600"},
@@ -97,20 +101,24 @@ if(!cart.length){alert("আগে চাল কার্টে যোগ কর�
 document.getElementById('formPopup').classList.add('show');
 }
 function closeForm(){document.getElementById('formPopup').classList.remove('show');}
-function sendOrder(){
+function getMsg(){
 let n=document.getElementById('cName').value.trim();
 let ph=document.getElementById('cPhone').value.trim();
 let ad=document.getElementById('cAddr').value.trim();
 let note=document.getElementById('cNote').value.trim();
-if(!n||!ph||!ad){alert("দয়া করে নাম, মোবাইল আর ঠিকানা দিন");return;}
-let msg="🌾 *নতুন অর্ডার - হাট-বাজার*%0A%0A";
-msg+="👤 *নাম:* "+n+"%0A📱 *মোবাইল:* "+ph+"%0A🏠 *ঠিকানা:* "+ad+"%0A";
-if(note) msg+="📝 *মন্তব্য:* "+note+"%0A";
-msg+="%0A🛒 *অর্ডার:*%0A";
-cart.forEach(p=>{msg+=`• ${p.name} - ${p.price} টাকা%0A`;});
+if(!n||!ph||!ad){alert("দয়া করে নাম, মোবাইল আর ঠিকানা দিন");return null;}
+let msg="🌾 নতুন অর্ডার - হাট-বাজার\n\n👤 নাম: "+n+"\n📱 মোবাইল: "+ph+"\n🏠 ঠিকানা: "+ad+"\n";
+if(note) msg+="📝 মন্তব্য: "+note+"\n";
+msg+="\n🛒 অর্ডার:\n";
+cart.forEach(p=>{msg+=`• ${p.name} - ${p.price} টাকা\n`;});
 let t=cart.reduce((s,p)=>s+p.price,0);
-msg+=`%0A💰 *মোট: ${t} টাকা*`;
-window.open("https://wa.me/8801712345678?text="+msg,"_blank");
+msg+=`\n💰 মোট: ${t} টাকা`;
+return msg;
+}
+function sendOrder(type){
+if(type=='fb'){window.open(FB,"_blank");return;}
+let msg=getMsg(); if(!msg) return;
+window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
 }
 render();
 </script>
